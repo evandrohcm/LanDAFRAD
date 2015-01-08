@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  cpf: MyString
+  data_nasc: 2015-01-08
+  qtd_acesso: 1
+  bonus_acumulado: 1.5
+  horas_gratis: 1
+
+two:
+  nome: MyString
+  cpf: MyString
+  data_nasc: 2015-01-08
+  qtd_acesso: 1
+  bonus_acumulado: 1.5
+  horas_gratis: 1
