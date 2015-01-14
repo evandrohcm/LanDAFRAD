@@ -1,31 +1,5 @@
 <h2 class="text-center">Cadastrar Cliente</h2>
 
-<style>
-	.col-centered{
-	    float: none;
-	    margin: 0 auto;
-	}
-</style>
-
 <div class="row">
-	<%= form_for :cliente, url: clientes_path, :html => { :class => "col-md-5 col-centered" } do |f| %>
-
-		<div class="form-group">
-			<%= f.label :nome, "Nome:" %><br>
-	    	<%= f.text_field :nome, :class => 'form-control' %>
-		</div>
-
-		<div class="form-group">
-			<%= f.label :cpf, "CPF:" %><br>
-	    	<%= f.text_field :cpf, :class => 'form-control' %>
-		</div>
-
-		<div class="form-group">
-			<%= f.label :data_nasc, "Data de Nascimento:" %><br>
-	    	<%= f.date_field :data_nasc, :class => 'form-control' %>
-		</div>
-
-		<%= f.submit "Cadastrar", :class => 'btn btn-primary' %>
-
-	<% end %>
+	<%= render 'form' %>
 </div>

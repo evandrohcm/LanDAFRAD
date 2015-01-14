@@ -1,3 +1,17 @@
-// Place all the styles related to the clientes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+.table tbody>tr>td.vert-align{
+    vertical-align: middle;
+}
+
+.aviso-cadastro {
+	position: relative;
+}
+
+.aviso-cadastro-alert {
+	position: absolute;
+	top: 15%;
+}
