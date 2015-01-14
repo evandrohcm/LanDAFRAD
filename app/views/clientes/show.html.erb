@@ -1,0 +1,86 @@
+<h2 class="text-center">Dados do Cliente - <%= @cliente.id %></h2>
+
+<br>
+
+<style>
+	.show-label {
+		text-align: left !important;
+	}
+</style>
+
+<div class="row">
+	<form action="#" class="form-horizontal col-centered col-md-6">
+		<div class="form-group row">
+			<label class="col-sm-5 control-label show-label">Nome:</label>
+			<div class="col-sm-7">
+				<p class="form-control-static"><%= @cliente.nome %></p>
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-sm-5 control-label show-label">CPF:</label>
+			<div class="col-sm-7">
+				<p class="form-control-static"><%= @cliente.cpf %></p>
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-sm-5 control-label show-label">E-mail:</label>
+			<div class="col-sm-7">
+				<p class="form-control-static"><%= @cliente.email %></p>
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-sm-5 control-label show-label">Data de Nascimento:</label>
+			<div class="col-sm-7">
+				<p class="form-control-static"><%= @cliente.data_nasc.to_time.strftime("%d/%m/%Y") %></p>
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-sm-5 control-label show-label">Quantidade de Acessos:</label>
+			<div class="col-sm-7">
+				<p class="form-control-static"><%= @cliente.qtd_acesso %></p>
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<label class="col-sm-5 control-label show-label">Bonus Acumulado:</label>
+			<div class="col-sm-7">
+				<p class="form-control-static"><%= @cliente.bonus_acumulado %></p>
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<label class="col-sm-5 control-label show-label">Horas Grátis disponíveis:</label>
+			<div class="col-sm-7">
+				<p class="form-control-static"><%= @cliente.horas_gratis %></p>
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<label class="col-sm-5 control-label show-label">Cadastrado desde:</label>
+			<div class="col-sm-7">
+				<p class="form-control-static">
+					<%= @cliente.created_at.to_time.strftime("%d/%m/%Y") %>
+				</p>
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<div class="col-sm-2">
+				<a href="" class="btn btn-default">
+					<span class="fa fa-pencil"></span> Editar
+				</a>
+			</div>
+
+			<div class="col-sm-2">
+				<a href="" class="btn btn-danger">
+					<span class="fa fa-times"></span> Excluir
+				</a>
+			</div>
+		</div>
+
+	</form>
+</div>

@@ -1,0 +1,86 @@
+<div class="row aviso-cadastro">
+  <% if flash[:aviso_cadastrar] %>
+    <div class="alert alert-success aviso-cadastro-alert" role="alert">
+      <span class="fa fa-check-circle-o" aria-hidden="true"></span>
+      Cliente cadastrado com sucesso!
+    </div>
+  <% end %>
+
+  <% if flash[:aviso_atualizar] %>
+    <div class="alert alert-success aviso-cadastro-alert" role="alert">
+      <span class="fa fa-check-circle-o" aria-hidden="true"></span>
+      Cliente atualizado com sucesso!
+    </div>
+  <% end %>
+
+  <% if flash[:aviso_deletar] %>
+    <div class="alert alert-warning aviso-cadastro-alert" role="alert">
+      <span class="fa fa-times-circle-o" aria-hidden="true"></span>
+      Cliente deletado com sucesso.
+    </div>
+  <% end %>
+  
+  <h2 class="text-center">Clientes Cadastrados</h2>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="row">
+    <div class="col-md-5">
+    </div>
+    <div class="col-md-7">
+      <a href="/clientes/new" class="btn btn-sm btn-primary pull-right"><span class="fa fa-external-link"></span> Novo</a>
+    </div>
+  </div>
+
+  <br>
+
+  <table class="col-md-12 table table-bordered table-striped">
+    <thead>
+      <th>Nome</th>
+      <th>CPF</th>
+      <th>E-mail</th>
+      <th>Data de Nascimento</th>
+      <th>Quantidade de Acessos</th>
+      <th>Bônus Acumulado</th>
+      <th>Horas Grátis Disponíveis</th>
+      <th>Ações</th>
+    </thead>
+
+    <tbody>
+      <% @clientes.each do |cliente| %>
+      <tr>
+        <td class="vert-align"><%= link_to cliente.nome, cliente_path(cliente) %></td>
+        <td class="vert-align"><%= cliente.cpf %></td>
+        <td class="vert-align"><%= cliente.email %></td>
+        <td class="vert-align"><%= cliente.data_nasc %></td>
+        <td class="vert-align"><%= cliente.qtd_acesso %></td>
+        <td class="vert-align"><%= cliente.bonus_acumulado %></td>
+        <td class="vert-align"><%= cliente.horas_gratis %></td>
+        <td class="vert-align">
+          <%= link_to edit_cliente_path(cliente),
+              class: 'btn btn-sm btn-default' do %>
+            <span class="fa fa-pencil"></span>
+          <% end %>
+
+          <%= link_to cliente_path(cliente),
+              method: :delete,
+              data: { confirm: 'Tem certeza que deseja remover esse Cliente?' },
+              class: 'btn btn-sm btn-danger' do %>
+            <span class="fa fa-times"></span>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  var aviso = $('.aviso-cadastro-alert');
+
+  if (aviso.length) {
+    aviso.delay(5000).fadeOut(500);
+  }  
+</script>
