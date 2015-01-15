@@ -1,29 +1,7 @@
-<% if @cliente.errors.any? %>
-<div class="row">
-	<div class="col-md-5 col-centered">
-		<div id="error_explanation" class="panel panel-danger">
-			<div class="panel-heading">
-				<%= pluralize(@cliente.errors.count, "erro") %>
-				no formulário:
-			</div>
-
-			<ul class="list-group">
-				<% @cliente.errors.each do |key, value| %>
-					<li class="list-group-item"><%= value %></li>
-				<% end %>
-			</ul>
-		</div>
-	</div>
-</div>
-<% end %>
+<%= render 'validation' %>
 
 <h2 class="text-center">Cadastrar Cliente</h2>
 
 <div class="row">
 	<%= render 'form' %>
 </div>
-
-<script>
-	// Insere a classe "has-error" para mudar a cor do label e input
-	$('.field_with_errors').parent('.form-group').addClass('has-error');
-</script>
