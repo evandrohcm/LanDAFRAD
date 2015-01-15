@@ -1,7 +1,7 @@
 class ClientesController < ApplicationController
 
 	def index
-		@clientes = Cliente.all
+		@clientes = Cliente.paginate(:page => params[:page], :per_page => 5)
 	end
 
 	def show

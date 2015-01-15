@@ -14,7 +14,10 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
+# Twitter Bootstrap
 gem "twitter-bootstrap-rails"
+# Paginate PESADISSIMO <3
+gem 'will_paginate', '~> 3.0.6'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
