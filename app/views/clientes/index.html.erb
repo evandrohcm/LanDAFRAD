@@ -54,7 +54,7 @@
         <td class="vert-align"><%= link_to cliente.nome, cliente_path(cliente) %></td>
         <td class="vert-align"><%= cliente.cpf %></td>
         <td class="vert-align"><%= cliente.email %></td>
-        <td class="vert-align"><%= cliente.data_nasc %></td>
+        <td class="vert-align"><%= cliente.data_nasc.to_time.strftime("%d/%m/%Y") %></td>
         <td class="vert-align"><%= cliente.qtd_acesso %></td>
         <td class="vert-align"><%= cliente.bonus_acumulado %></td>
         <td class="vert-align"><%= cliente.horas_gratis %></td>
