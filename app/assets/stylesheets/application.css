@@ -53,3 +53,7 @@ body > .container {
 code {
   font-size: 80%;
 }
+
+.field_with_errors {
+  display: inline;
+}
