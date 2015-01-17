@@ -49,6 +49,17 @@ class ClientesController < ApplicationController
 	    redirect_to '/clientes'
 	end
 
+	# Testes do HyPDF
+	def htmltopdf
+		hypdf = HyPDF.htmltopdf(
+		    '<html><body><h1>Teste HyPDF</h1></body></html>',
+		    test: true
+		)
+
+		send_data(hypdf[:pdf], filename: 'hypdf_test.pdf', type: 'application/pdf')
+	end
+
+	# Privates
 	private
 		def cliente_params
 			params.require(:cliente).permit(:nome, :cpf, :data_nasc, :email)
