@@ -18,6 +18,10 @@ gem 'coffee-rails', '~> 4.0.0'
 gem "twitter-bootstrap-rails"
 # Paginate PESADISSIMO <3
 gem 'will_paginate', '~> 3.0.6'
+# HyPDF (Heroku)
+gem 'hypdf', '~> 1.0.7'
+# Unicorn, webserver usado pelo Heroku
+gem 'unicorn'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
