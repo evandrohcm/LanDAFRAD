@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'acesso/index'
+
   resources :clientes
 
   get "htmltopdf" => 'clientes#htmltopdf'
