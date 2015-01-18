@@ -1,0 +1,22 @@
+<h2 class="text-center">Cadastrar Acesso</h2>
+
+<%= form_for @acesso, :html => { :class => "col-md-5 col-centered" } do |f| %>
+
+	<div class="form-group">
+		<%= f.label :valor, "Valor:", :class => 'control-label' %><br>
+    	<%= f.text_field :valor, :class => 'form-control', :required => 'required' %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :duracao, "Duração:", :class => 'control-label' %><br>
+    	<%= f.text_field :duracao, :class => 'form-control', :required => 'required' %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :cliente_id, "Cliente:", :class => 'control-label' %>
+    	<%= f.collection_select :cliente_id, Cliente.all, :id, :nome, {}, {:class => 'form-control'} %>
+	</div>
+
+	<%= f.submit "Enviar", :class => 'btn btn-primary' %>
+
+<% end %>
