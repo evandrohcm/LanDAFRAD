@@ -2,10 +2,22 @@ class ClientesController < ApplicationController
 
 	def index
 		@clientes = Cliente.paginate(:page => params[:page], :per_page => 5)
+
+		respond_to do |format|
+	      	format.html
+	      	format.xml { render :xml => @clientes }
+	      	format.json { render :json => @clientes }
+    	end
 	end
 
 	def show
 		@cliente = Cliente.friendly.find(params[:id])
+
+		respond_to do |format|
+	      	format.html
+	      	format.xml { render :xml => @cliente.to_xml }
+	      	format.json { render :json => @cliente.to_json }
+    	end
 	end
 
 	def new

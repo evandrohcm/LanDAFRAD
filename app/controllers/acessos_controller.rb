@@ -2,6 +2,12 @@ class AcessosController < ApplicationController
 
 	def index
 		@acessos = Acesso.paginate(:page => params[:page], :per_page => 5)
+
+		respond_to do |format|
+	      	format.html
+	      	format.xml { render :xml => @acessos }
+	      	format.json { render :json => @acessos }
+    	end
 	end
 
 	def new
