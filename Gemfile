@@ -24,6 +24,9 @@ gem 'hypdf', '~> 1.0.7'
 gem 'unicorn'
 # Friendly ID
 gem 'friendly_id', '~> 5.1.0'
+# Postmark (Heroku)
+gem 'postmark-rails'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
