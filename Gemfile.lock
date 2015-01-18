@@ -38,6 +38,8 @@ GEM
     coffee-script-source (1.8.0)
     erubis (2.7.0)
     execjs (2.2.2)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     hike (1.2.3)
     httmultiparty (0.3.10)
       httparty (>= 0.7.3)
@@ -136,6 +138,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  friendly_id (~> 5.1.0)
   hypdf (~> 1.0.7)
   jbuilder (~> 2.0)
   jquery-rails

@@ -5,7 +5,7 @@ class ClientesController < ApplicationController
 	end
 
 	def show
-		@cliente = Cliente.find(params[:id])
+		@cliente = Cliente.friendly.find(params[:id])
 	end
 
 	def new
@@ -13,7 +13,7 @@ class ClientesController < ApplicationController
 	end
 
 	def edit
-		@cliente = Cliente.find(params[:id])
+		@cliente = Cliente.friendly.find(params[:id])
 	end
 
 	def create
@@ -31,7 +31,7 @@ class ClientesController < ApplicationController
 	end
 
 	def update
-		@cliente = Cliente.find(params[:id])
+		@cliente = Cliente.friendly.find(params[:id])
  
 		if @cliente.update(cliente_params)
 			flash[:aviso_atualizar] = true
@@ -42,7 +42,7 @@ class ClientesController < ApplicationController
 	end
 
 	def destroy
-		@cliente = Cliente.find(params[:id])
+		@cliente = Cliente.friendly.find(params[:id])
 	    @cliente.destroy
 	 
 	 	flash[:aviso_deletar] = true

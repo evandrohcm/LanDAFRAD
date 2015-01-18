@@ -22,6 +22,8 @@ gem 'will_paginate', '~> 3.0.6'
 gem 'hypdf', '~> 1.0.7'
 # Unicorn, webserver usado pelo Heroku
 gem 'unicorn'
+# Friendly ID
+gem 'friendly_id', '~> 5.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
