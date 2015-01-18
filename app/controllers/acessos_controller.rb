@@ -1,7 +1,7 @@
 class AcessosController < ApplicationController
 
 	def index
-		@acessos = Acesso.paginate(:page => params[:page], :per_page => 5)
+		@acessos = Acesso.paginate(:page => params[:page], :per_page => 10).recent_acesso.all
 
 		respond_to do |format|
 	      	format.html
@@ -17,9 +17,23 @@ class AcessosController < ApplicationController
 	def create
 		@acesso = Acesso.new(acesso_params)
 
-		@acesso.save
+		@cliente = Cliente.find(acesso_params[:cliente_id])
+		@cliente.qtd_acesso += 1
+		@cliente.bonus_acumulado += acesso_params[:valor].to_f
 
-    	redirect_to '/acessos'
+		if @cliente.bonus_acumulado >= 20
+			@cliente.bonus_acumulado -= 20
+			@cliente.horas_gratis += 5
+
+			ClienteMailer.email_bonus(@cliente).deliver!
+		end
+
+		if @cliente.save and @acesso.save
+	    	redirect_to '/acessos'
+	    else
+	    	render 'new'
+		end
+
 	end
 
 	# Relatórios do HyPDF
