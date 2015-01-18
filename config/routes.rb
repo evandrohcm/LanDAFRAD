@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :clientes
 
   get "htmltopdf" => 'clientes#htmltopdf'
+  get "email_send" => 'clientes#email_send'
   get "relatorio_acessos" => 'acessos#relatorio_acessos'
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,7 +1,7 @@
 class ClientesController < ApplicationController
 
 	def index
-		@clientes = Cliente.paginate(:page => params[:page], :per_page => 5)
+		@clientes = Cliente.paginate(:page => params[:page], :per_page => 5).recent_qtd_acesso.all
 
 		respond_to do |format|
 	      	format.html
@@ -69,6 +69,12 @@ class ClientesController < ApplicationController
 		)
 
 		send_data(hypdf[:pdf], filename: 'hypdf_test.pdf', type: 'application/pdf')
+	end
+
+	# Testes do Postmark
+	def email_send
+		ClienteMailer.welcome_message.deliver!
+		render plain: "E-mail enviado com sucesso!"
 	end
 
 	# Privates
