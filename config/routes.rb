@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "htmltopdf" => 'clientes#htmltopdf'
   get "email_send" => 'clientes#email_send'
   get "relatorio_acessos" => 'acessos#relatorio_acessos'
+  get "relatorio_clientes" => 'clientes#relatorio_clientes'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

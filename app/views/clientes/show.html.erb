@@ -70,15 +70,19 @@
 
 		<div class="form-group row">
 			<div class="col-sm-2">
-				<a href="" class="btn btn-default">
+				<%= link_to edit_cliente_path(@cliente),
+					class: 'btn btn-default' do %>
 					<span class="fa fa-pencil"></span> Editar
-				</a>
+				<% end %>
 			</div>
 
 			<div class="col-sm-2">
-				<a href="" class="btn btn-danger">
-					<span class="fa fa-times"></span> Excluir
-				</a>
+				<%= link_to cliente_path(@cliente),
+	                method: :delete,
+	                data: { confirm: 'Tem certeza que deseja remover esse Cliente?' },
+	                class: 'btn btn-danger' do %>
+	              <span class="fa fa-times"></span> Excluir
+	            <% end %>
 			</div>
 		</div>
 

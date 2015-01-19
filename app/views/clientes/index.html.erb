@@ -1,23 +1,6 @@
 <div class="row aviso-cadastro">
-  <% if flash[:aviso_cadastrar] %>
-    <div class="alert alert-success aviso-cadastro-alert" role="alert">
-      <span class="fa fa-check-circle-o" aria-hidden="true"></span>
-      Cliente cadastrado com sucesso!
-    </div>
-  <% end %>
-
-  <% if flash[:aviso_atualizar] %>
-    <div class="alert alert-success aviso-cadastro-alert" role="alert">
-      <span class="fa fa-check-circle-o" aria-hidden="true"></span>
-      Cliente atualizado com sucesso!
-    </div>
-  <% end %>
-
-  <% if flash[:aviso_deletar] %>
-    <div class="alert alert-warning aviso-cadastro-alert" role="alert">
-      <span class="fa fa-times-circle-o" aria-hidden="true"></span>
-      Cliente deletado com sucesso.
-    </div>
+  <% if flash[:aviso] %>
+        <%= alert_title(flash[:aviso]) %>
   <% end %>
   
   <h2 class="text-center">Clientes Cadastrados</h2>
@@ -81,6 +64,14 @@
       <%= will_paginate @clientes %>
     </div>
   </div>
+
+  <div class="row">
+      <div class="col-md-12">
+        <a href="/relatorio_clientes" class="btn btn-default">
+          <span class="fa fa-list-alt"></span>&nbsp; Gerar Relatório dos Clientes cadastrados
+        </a>
+      </div>
+    </div>
 </div>
 
 <script>

@@ -36,7 +36,7 @@ class ClientesController < ApplicationController
 
 		@cliente = Cliente.new(valores)
 		if @cliente.save
-			flash[:aviso_cadastrar] = true
+			flash[:aviso] = "insert"
 	    	redirect_to '/clientes'
 	    else
 	      render 'new'
@@ -47,7 +47,7 @@ class ClientesController < ApplicationController
 		@cliente = Cliente.friendly.find(params[:id])
  
 		if @cliente.update(cliente_params)
-			flash[:aviso_atualizar] = true
+			flash[:aviso] = "update"
 			redirect_to '/clientes'
 		else
 			render 'edit'
@@ -58,7 +58,7 @@ class ClientesController < ApplicationController
 		@cliente = Cliente.friendly.find(params[:id])
 	    @cliente.destroy
 	 
-	 	flash[:aviso_deletar] = true
+	 	flash[:aviso] = "delete"
 	    redirect_to '/clientes'
 	end
 
@@ -70,6 +70,69 @@ class ClientesController < ApplicationController
 		)
 
 		send_data(hypdf[:pdf], filename: 'hypdf_test.pdf', type: 'application/pdf')
+	end
+
+	def relatorio_clientes
+		html = %Q{
+			<html>
+			<head>
+				<meta charset="UTF-8">
+				<title>Relatório dos Clientes cadastrados</title>
+
+				<style>
+					table {
+						width: 100%;
+					}
+
+					table, tr, th, td {
+						border: 1px solid black;
+						border-collapse: collapse;
+					}
+				</style>
+			</head>
+			<body>
+				<br>
+				<h1>Relatório de todos os Clientes da LAN</h1>
+
+				<table style="">
+					<thead>
+						<tr>
+							<th>Nome</th>
+							<th>CPF</th>
+							<th>E-mail</th>
+							<th>Data de Nascimento</th>
+							<th>Quantidade de Acessos</th>
+						</tr>
+				    </thead>
+
+				    <tbody>
+		}
+
+		Cliente.recent_qtd_acesso.all.each do |cliente|
+			html << %Q{
+				<tr>
+		    		<td class="vert-align">#{cliente.nome}</td>
+		    		<td class="vert-align">#{cliente.cpf}</td>
+		    		<td class="vert-align">#{cliente.email} h</td>
+		    		<td class="vert-align">#{cliente.data_nasc.to_time.strftime("%d/%m/%Y") }</td>
+		    		<td class="vert-align">#{cliente.qtd_acesso}</td>
+		    	</tr>
+			}
+		end
+
+		html << %Q{
+				</tbody>
+			</table>
+		</body>
+		</html>
+		}
+
+		hypdf = HyPDF.htmltopdf(
+		    html,
+		    test: true
+		)
+
+		send_data(hypdf[:pdf], filename: 'relatorio_clientes.pdf', type: 'application/pdf')
 	end
 
 	# Testes do Postmark
