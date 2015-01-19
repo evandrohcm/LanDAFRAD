@@ -1,4 +1,5 @@
 class AcessosController < ApplicationController
+	before_action :authenticate_admin!
 
 	def index
 		@acessos = Acesso.paginate(:page => params[:page], :per_page => 10).recent_acesso.all

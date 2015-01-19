@@ -1,4 +1,8 @@
 Rails.application.configure do
+  # Devise configurations
+  config.action_mailer.default_url_options = { host: 'https://landafrad.herokuapp.com' }
+  config.assets.initialize_on_precompile = false
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.

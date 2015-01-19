@@ -1,4 +1,5 @@
 class ClientesController < ApplicationController
+	before_action :authenticate_admin!
 
 	def index
 		@clientes = Cliente.paginate(:page => params[:page], :per_page => 5).recent_qtd_acesso.all

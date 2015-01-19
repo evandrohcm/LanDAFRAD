@@ -8,6 +8,7 @@
 </head>
 <body>
 
+<% if admin_signed_in? %>
 <!-- Fixed navbar -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container">
@@ -28,16 +29,20 @@
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-			<li><a href="#">Login</a></li>
+				<li>
+					<a href="admins/sign_out" data-method="delete" rel="nofollow">Logout</a>
+				</li>
 			</ul>
 		</div>
 	</div>
 </nav>
+<% end %>
 
 <div class="container" style="margin-bottom: 85px">
 <%= yield %>
 </div>
 
+<% if admin_signed_in? %>
 <footer class="footer">
 	<div class="container">
 		<div class="row">
@@ -51,6 +56,7 @@
 		</div>
 	</div>
 </footer>
+<% end %>
 
 </body>
 </html>

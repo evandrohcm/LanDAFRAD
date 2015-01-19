@@ -26,6 +26,8 @@ gem 'unicorn'
 gem 'friendly_id', '~> 5.1.0'
 # Postmark (Heroku)
 gem 'postmark-rails'
+# Devise
+gem 'devise'
 
 
 # Use jquery as the JavaScript library
